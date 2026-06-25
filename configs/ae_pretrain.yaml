@@ -1,0 +1,16 @@
+seed: 42
+device: cuda
+data:
+  root: ./dummy_cd_dataset
+  image_size: 256
+  batch_size: 4
+  num_workers: 4
+train:
+  epochs: 50
+  lr: 0.0002
+  weight_decay: 0.0001
+  amp: true
+output:
+  dir: ./outputs/ae_pretrain
+model:
+  latent_ch: 4

@@ -1,0 +1,29 @@
+seed: 42
+device: cuda
+data:
+  root: ./dummy_cd_dataset
+  image_size: 256
+  batch_size: 4
+  num_workers: 4
+model:
+  feat_ch: 128
+  control_ch: 64
+  latent_ch: 4
+  style_dim: 128
+  hidden_ch: 128
+  diffusion_steps: 1000
+  inference_steps: 50
+  sample_method: ddim
+  edit_strength: 0.65
+  freeze_autoencoder: true
+  ae_checkpoint: ./outputs/ae_pretrain/checkpoints/best_ae.pth
+train:
+  epochs: 100
+  lr: 0.0001
+  weight_decay: 0.0001
+  amp: true
+loss:
+  lambda_ref: 1.0
+  lambda_diff: 0.1
+output:
+  dir: ./outputs/cign_cd
